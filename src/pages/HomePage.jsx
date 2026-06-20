@@ -114,17 +114,10 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-4">{['Free Insurance Health Check-Up', 'Choose Your Insurance Category', 'Book Review', 'Get Protection Guidance And Claim/Renewal Support'].map((step, index) => <div key={step} className="rounded-lg bg-white p-5 shadow-sm"><span className="text-4xl font-black text-amber-500">{index + 1}</span><h3 className="mt-3 font-bold text-slate-950">{step}</h3></div>)}</div>
       </Section>
 
-      <Section id="lead-forms" dark eyebrow="Step 3" title="Book Review Or Business Consultation" intro="Short forms only.">
-        <div className="grid gap-6 lg:grid-cols-[1fr_1fr_.55fr]">
+      <Section id="lead-forms" dark eyebrow="Step 3" title="Book Review Or Business Consultation">
+        <div className="grid gap-6 lg:grid-cols-2">
           <LeadForm type="personal" />
           <LeadForm type="business" />
-          <aside className="rounded-lg border border-white/10 bg-white/10 p-5 text-slate-100 shadow-xl backdrop-blur">
-            <p className="text-sm font-black text-amber-200">Advisor Review Note</p>
-            <div className="mt-5 space-y-4 text-sm">
-              <div className="rounded-lg border border-white/15 bg-slate-950/50 p-4">Date: ________</div>
-              <div className="rounded-lg border border-white/15 bg-slate-950/50 p-4">Page No: ________</div>
-            </div>
-          </aside>
         </div>
         <div className="mt-6"><DisclaimerBox /></div>
       </Section>
