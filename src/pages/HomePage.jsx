@@ -6,9 +6,9 @@ import DisclaimerBox from '../components/DisclaimerBox'
 import FAQAccordion from '../components/FAQAccordion'
 import LeadForm from '../components/LeadForm'
 import ProductCard from '../components/ProductCard'
-import Quiz from '../components/Quiz'
+import HealthCheckCTA from '../components/HealthCheckCTA'
 import TrustBadges from '../components/TrustBadges'
-import { placeholders, products } from '../data/insuranceProducts'
+import { featuredProductSlugs, placeholders, productBySlug } from '../data/insuranceProducts'
 import { audienceTabs, comparisonRows, faqs, riskStories } from '../data/mainContent'
 
 function Section({ id, eyebrow, title, intro, children, dark = false }) {
@@ -27,7 +27,8 @@ function Section({ id, eyebrow, title, intro, children, dark = false }) {
 export default function HomePage() {
   const [tab, setTab] = useState(0)
   const trust = ['Insurance Advisor Since 2007', '5 Language Support', 'Family + Business Protection', 'Claim & Renewal Support']
-  const chips = ['NRI Specialist', 'Health Insurance', 'Term Plans', 'Accident Cover', 'Vehicle Insurance', 'Keyman Insurance', 'Group Insurance', 'Claim Support']
+  const chips = ['Health Insurance', 'Life Insurance', 'Accidental Insurance', 'Vehicle Insurance', 'NRI Insurance', 'Parents Insurance', 'Retirement Plans', 'Travel Insurance', 'Business Insurance']
+  const featuredProducts = featuredProductSlugs.map((slug) => productBySlug[slug])
 
   return (
     <main>
@@ -37,14 +38,15 @@ export default function HomePage() {
           <div>
             <p className="text-sm font-bold uppercase tracking-wide text-amber-300">Trusted Since 2007 - For NRIs, Working Professionals & Entrepreneurs</p>
             <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight sm:text-5xl md:text-7xl">All Your Insurance Needs.<br />One Trusted Advisor.</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Get clear guidance on Health Insurance, Life Insurance, Accident Insurance, Vehicle Insurance, NRI Insurance, and Business Insurance in one conversation.</p>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Get clear guidance on Health Insurance, Life Insurance, Accidental Insurance, Vehicle Insurance, NRI Insurance, Parents Insurance, Retirement Plans, Travel Insurance, and Business Insurance - all in one trusted place.</p>
+            <p className="mt-4 text-xl font-black text-amber-200">With Dr. Maria Pramila</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <CTAButton href="#lead-forms">Book Free Review</CTAButton>
-              <CTAButton variant="secondary" href="#free-checkup">Take Free Check-Up</CTAButton>
+              <CTAButton href="#lead-forms">Book Review</CTAButton>
+              <CTAButton variant="secondary" href={`https://wa.me/${placeholders.whatsapp}`}>WhatsApp Advisor</CTAButton>
             </div>
             <div className="mt-7 flex flex-wrap gap-2">{chips.map((chip) => <span key={chip} className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold text-slate-100">{chip}</span>)}</div>
             <div className="mt-8 grid gap-3 rounded-lg border border-white/10 bg-white/10 p-3 backdrop-blur sm:grid-cols-3">
-              {['1. Pick your profile', '2. Open the right insurance page', '3. Book review or WhatsApp'].map((step) => (
+              {['1. Pick Your Profile', '2. Open The Right Insurance Page', '3. Book Review Or WhatsApp'].map((step) => (
                 <div key={step} className="rounded-lg bg-slate-950/60 px-4 py-3 text-sm font-bold text-amber-100">{step}</div>
               ))}
             </div>
@@ -52,7 +54,7 @@ export default function HomePage() {
           <div className="rounded-lg border border-white/10 bg-white/10 p-5 shadow-2xl backdrop-blur">
             <img
               src={placeholders.advisorPhoto}
-              alt="Dr. Maria Pramila, Insure to Secure insurance advisor"
+              alt="Dr. Maria Pramila, Insure To Secure insurance advisor"
               className="aspect-[4/5] w-full rounded-lg object-cover object-top"
             />
             <div className="mt-5"><TrustBadges items={trust} /></div>
@@ -60,7 +62,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Section id="audience-selector" eyebrow="Step 1" title="Start With Your Situation" intro="The recommendation tips help you choose better.">
+      <Section id="audience-selector" eyebrow="Step 1" title="Step 1 — Start With Your Situation" intro="These Recommendation Tips Help You Choose The Right Starting Point.">
         <div className="grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
           <div className="grid gap-3">
             {audienceTabs.map((item, index) => (
@@ -76,16 +78,17 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="insurance-types" eyebrow="Step 2 - Click through" title="Choose An Insurance Category">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div>
+      <Section id="insurance-types" eyebrow="Step 2" title="Step 2 — Click Through">
+        <div className="grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-3">{featuredProducts.map((product) => <ProductCard key={product.slug} product={product} />)}</div>
+        <p className="mt-5 text-sm leading-6 text-slate-500">Coverage and suitability depend on insurer rules, policy terms, underwriting, and customer profile.</p>
       </Section>
 
-      <Section id="wrong-insurance" dark eyebrow="Quiet risks" title="What Happens When Insurance Is Wrong?" intro="The goal is not fear. The goal is clarity before a claim, renewal, or family emergency.">
+      <Section id="wrong-insurance" dark eyebrow="Quick Risks" title="What Happens When Insurance Is Wrong?" intro="The Goal Is Not Fear. The Goal Is To Check Whether One Emergency Can Disturb Your Savings, Income, Parents, Vehicle, Or Business.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{riskStories.map(([title, body]) => <article key={title} className="rounded-lg border border-white/10 bg-white/10 p-5 shadow-lg backdrop-blur"><h3 className="font-bold text-white">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-300">{body}</p></article>)}</div>
-        <p className="mt-5 text-sm text-slate-400">Examples are illustrative. Actual claims and costs vary. Verify source before publishing if statistics are added.</p>
+        <p className="mt-5 text-sm text-slate-400">Examples Are For Awareness Only. Actual Coverage, Claims, Exclusions, And Costs Depend On Policy Terms And Insurer Rules.</p>
       </Section>
 
-      <Section id="free-checkup" dark eyebrow="Take Free Check-Up" title="Free Insurance Health Check-Up" intro="A quick self-check to spot possible gaps before a consultation."><Quiz /></Section>
+      <Section id="free-checkup" dark eyebrow="Free Insurance Health Check-Up" title="Free Insurance Health Check-Up"><HealthCheckCTA /></Section>
 
       <Section id="comparison" eyebrow="Human guidance" title="Advisor vs App vs Random Seller" intro="This positions advisory support as education-first, not pressure selling."><ComparisonTable rows={comparisonRows} /></Section>
 
@@ -94,7 +97,7 @@ export default function HomePage() {
           <div className="rounded-lg border border-white/10 bg-white/10 p-6 shadow-xl backdrop-blur">
             <img
               src={placeholders.advisorPhoto}
-              alt="Dr. Maria Pramila, Insure to Secure insurance advisor"
+              alt="Dr. Maria Pramila, Insure To Secure insurance advisor"
               className="aspect-[4/3] w-full rounded-lg object-cover object-top"
             />
             <h3 className="mt-6 text-3xl font-black">Dr. Maria Pramila</h3>
@@ -108,11 +111,21 @@ export default function HomePage() {
       </Section>
 
       <Section id="how-it-works" eyebrow="Simple process" title="How It Works">
-        <div className="grid gap-4 md:grid-cols-4">{['Take Free Check-Up', 'Choose Your Insurance Category', 'Book Free Review', 'Get protection guidance and claim/renewal support'].map((step, index) => <div key={step} className="rounded-lg bg-white p-5 shadow-sm"><span className="text-4xl font-black text-amber-500">{index + 1}</span><h3 className="mt-3 font-bold text-slate-950">{step}</h3></div>)}</div>
+        <div className="grid gap-4 md:grid-cols-4">{['Free Insurance Health Check-Up', 'Choose Your Insurance Category', 'Book Review', 'Get Protection Guidance And Claim/Renewal Support'].map((step, index) => <div key={step} className="rounded-lg bg-white p-5 shadow-sm"><span className="text-4xl font-black text-amber-500">{index + 1}</span><h3 className="mt-3 font-bold text-slate-950">{step}</h3></div>)}</div>
       </Section>
 
-      <Section id="lead-forms" dark eyebrow="Step 3" title="Book Free Review Or Business Consultation" intro="Short forms only.">
-        <div className="grid gap-6 lg:grid-cols-2"><LeadForm type="personal" /><LeadForm type="business" /></div>
+      <Section id="lead-forms" dark eyebrow="Step 3" title="Book Review Or Business Consultation" intro="Short forms only.">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1fr_.55fr]">
+          <LeadForm type="personal" />
+          <LeadForm type="business" />
+          <aside className="rounded-lg border border-white/10 bg-white/10 p-5 text-slate-100 shadow-xl backdrop-blur">
+            <p className="text-sm font-black text-amber-200">Advisor Review Note</p>
+            <div className="mt-5 space-y-4 text-sm">
+              <div className="rounded-lg border border-white/15 bg-slate-950/50 p-4">Date: ________</div>
+              <div className="rounded-lg border border-white/15 bg-slate-950/50 p-4">Page No: ________</div>
+            </div>
+          </aside>
+        </div>
         <div className="mt-6"><DisclaimerBox /></div>
       </Section>
 

@@ -11,7 +11,7 @@ function Metadata() {
   useEffect(() => {
     const slug = location.pathname.replace('/', '')
     const product = productBySlug[slug]
-    const title = product?.title || 'All Your Insurance Needs. One Trusted Advisor. | Insure to Secure by Dr. Maria Pramila'
+    const title = product?.title || 'All Your Insurance Needs. One Trusted Advisor. | Insure To Secure By Dr. Maria Pramila'
     const description = product?.meta || 'India-focused insurance advisory for health, life, accident, vehicle, NRI, and business insurance reviews.'
     document.title = title
     const setMeta = (name, content, attr = 'name') => {
@@ -52,7 +52,7 @@ function Metadata() {
     setJsonLd('organization-schema-placeholder', {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'Insure to Secure by Dr. Maria Pramila',
+      name: 'Insure To Secure By Dr. Maria Pramila',
       placeholder: placeholders.organizationSchema,
     })
     setJsonLd('breadcrumb-schema-placeholder', {
@@ -65,7 +65,7 @@ function Metadata() {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       placeholder: placeholders.faqSchema,
-      page: product?.name || 'Insure to Secure home page',
+      page: product?.name || 'Insure To Secure home page',
     })
   }, [location.pathname])
   return null
