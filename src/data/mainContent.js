@@ -1,10 +1,9 @@
 import { productBySlug } from './insuranceProducts'
 
 export const audienceTabs = [
-  { label: 'I Am A Family | Parent', products: ['Health Insurance', 'Parents Insurance', 'Life Insurance', 'Accidental Insurance'] },
-  { label: 'I Am An NRI', products: ['NRI Health Insurance', 'Parents Health Insurance', 'Senior Citizen Health Insurance', 'Retirement Plans', 'Travel Insurance'] },
+  { label: 'I Am An NRI', products: ['NRI Health Insurance', 'Senior Citizen Health Insurance', 'Home Insurance', 'Retirement Plans', 'Travel Insurance'] },
   { label: 'I Am A Working Professional', products: ['Health Insurance', 'Life Insurance', 'Accidental Insurance', 'Retirement Plans'] },
-  { label: 'I Want To Renew Or Change My Insurance', products: ['Health Insurance', 'Accidental Insurance', 'Life Insurance', 'Vehicle Insurance', 'Group Health Insurance'] },
+  { label: 'I Want To Renew Or Port My Insurance', products: ['Health Insurance', 'Accidental Insurance', 'Life Insurance', 'Vehicle Insurance', 'Group Health Insurance'] },
   { label: 'I Am A Business Owner', products: ['Keyman Insurance', 'Employer-Employee Insurance', 'Group Health Insurance', 'Group Term Life Insurance', 'Group Accidental Insurance'] },
 ]
 
@@ -31,10 +30,7 @@ export const comparisonRows = [
 ]
 
 export const faqs = [
-  [
-    'Should Parents Be Included In Family Floater?',
-    'If Children Are Above 25 Years, Separate Health Insurance Is Usually Required For Them, Except In Certain Multi-Individual Insurance Plans. Parents Should Also Be Reviewed Separately Because Age, Medical History, Co-Pay, Waiting Periods, And Premiums Can Affect The Entire Family Floater. The Right Option Depends On The Insurer, Policy Terms, And Family Situation.',
-  ],
+  ['Should Parents Be Included In Family Floater?', 'If Children Are Above 25 Years, Separate Health Insurance Is Usually Required For Them, Except In Certain Multi-Individual Insurance Plans. Parents Should Also Be Reviewed Separately Because Age, Medical History, Co-Pay, Waiting Periods, And Premiums Can Affect The Entire Family Floater. The Right Option Depends On The Insurer, Policy Terms, And Family Situation.'],
   ['Do I Need Health Insurance If I Already Have Company Insurance?', 'Usually yes to review. Company Insurance may change with employment and may have limits. The right answer depends on your family, dependents, and policy terms.'],
   ['How Much Life Insurance Do I Need?', 'A suitable cover depends on income, liabilities, dependents, children’s education, home loan, existing assets, health, and underwriting.'],
   ['Is Accidental Insurance Different From Health Insurance?', 'Yes. Health Insurance handles eligible medical expenses, while Accidental Insurance can pay defined benefits for accident-linked death or disability depending on product terms.'],
@@ -49,10 +45,7 @@ export const faqs = [
   ['What Is Group Health Insurance?', 'A Health Insurance arrangement offered by an employer or group to eligible members, usually reviewed annually.'],
   ['What Is Group Term Life Insurance?', 'A group Life Insurance arrangement for employees, generally renewed annually and priced for the group.'],
   ['What Is Group Accidental Insurance?', 'A group Accidental Insurance arrangement that can support accident-linked death or disability cover for employees or groups depending on product terms.'],
-  [
-    'Will You Help During Claim Time?',
-    'Yes. If Your Policy Is Through Our Insurance Network Or Distributor Channel, We Can Definitely Help You With Claim Guidance, Subject To The Insurer’s Policy Terms, Required Documents, Approval Process, And Claim Rules. Claim Assistance Can Be Provided For Documentation, Hospital Coordination, Follow-Up, And Understanding The Claim Process.',
-  ],
+  ['Will You Help During Claim Time?', 'Yes. If Your Policy Is Through Our Insurance Network Or Distributor Channel, We Can Definitely Help You With Claim Guidance, Subject To The Insurer’s Policy Terms, Required Documents, Approval Process, And Claim Rules. Claim Assistance Can Be Provided For Documentation, Hospital Coordination, Follow-Up, And Understanding The Claim Process.'],
   ['Is The Consultation Free?', 'The review conversation can be free. Final advice depends on official policy documents, underwriting, and customer profile.'],
 ]
 
